@@ -29,7 +29,7 @@ internal abstract class Creature(attack: Int, defense: Int, health: Int, damage:
         }
     }
 
-    fun hit(defender: Creature) {
+    internal fun hit(defender: Creature) {
         val success = HitStatus.determineSuccess(attack, defender.defense)
         if (success) {
             defender.health = defender.health - damage.random()
@@ -40,7 +40,7 @@ internal abstract class Creature(attack: Int, defense: Int, health: Int, damage:
         return isAlive
     }
 
-    fun checkHealth() : Int {
+    internal fun checkHealth() : Int {
         return health
     }
 

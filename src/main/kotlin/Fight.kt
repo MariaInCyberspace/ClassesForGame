@@ -7,7 +7,7 @@ internal object Fight {
         monster = m
     }
 
-    fun start(p: Player, m: Monster) {
+    internal fun start(p: Player, m: Monster) {
         setFighters(p, m)
         println(Resources.PLAYERS_ENTERED_FIGHT)
         println(Resources.PLAYER_HEALTH_INFO + "${player.checkHealth()}, " + Resources.MONSTER_HEALTH_INFO + "${monster.checkHealth()} \n")
