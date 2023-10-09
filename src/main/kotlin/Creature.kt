@@ -6,9 +6,12 @@ internal abstract class Creature(attack: Int, defense: Int, health: Int, damage:
     private var attack: Int by AttackAndDefenseDelegate(attack)
     private var defense: Int by AttackAndDefenseDelegate(defense)
     protected var isAlive: Boolean = true
+    private val initialHealth: Int = health
 
-    protected open var health: Int by Delegates.observable(health) {
-            _, _, new ->
+
+    protected open var health: Int by Delegates.observable(initialHealth) {
+            _, old, new ->
+
         if (new == 0 || new < 0) {
             isAlive = false
             info()
@@ -41,6 +44,7 @@ internal abstract class Creature(attack: Int, defense: Int, health: Int, damage:
     }
 
     internal fun checkHealth() : Int {
+        if (initialHealth < 0) health = 1
         return health
     }
 
