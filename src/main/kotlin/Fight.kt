@@ -23,8 +23,8 @@ internal object Fight {
                 println(Resources.PLAYER_ATTACKS_MSG)
                 player.hit(monster)
                 println(Resources.MONSTER_HEALTH_INFO + "${monster.checkHealth()} \n")
+                Thread.sleep(1000)
             }
-            Thread.sleep(1000)
 
         } while (monster.checkIfAlive())
     }

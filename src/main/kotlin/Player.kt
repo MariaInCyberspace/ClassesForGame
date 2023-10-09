@@ -5,7 +5,7 @@ internal class Player(attack: Int, defense: Int, health: Int, damage: IntRange)
     : Creature(attack = attack, defense = defense, health = health, damage = damage) {
 
     private var healCounter: Int = 0
-    private val maxHealth = health
+    private val maxHealth = initialHealth
 
     override var health: Int by Delegates.observable(initialHealth) {
         _, _, value ->
