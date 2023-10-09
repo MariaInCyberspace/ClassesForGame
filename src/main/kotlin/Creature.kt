@@ -2,11 +2,24 @@ import java.lang.IllegalArgumentException
 import kotlin.properties.Delegates
 
 
-internal abstract class Creature(attack: Int, defense: Int, health: Int, damage: IntRange) {
+internal abstract class Creature (attack: Int, defense: Int, health: Int, damage: IntRange) {
     private var attack: Int by AttackAndDefenseDelegate(attack)
     private var defense: Int by AttackAndDefenseDelegate(defense)
     protected var isAlive: Boolean = true
-    private val initialHealth: Int = health
+    protected val initialHealth: Int
+
+    init {
+        initialHealth = if (health < 0) {
+            try {
+                throw IllegalArgumentException("$health: " + Resources.HEALTH_VAL_EXCEPTION)
+            } catch (ex: IllegalArgumentException) {
+                ex.printStackTrace()
+            }
+            1
+        } else {
+            health
+        }
+    }
 
 
     protected open var health: Int by Delegates.observable(initialHealth) {
@@ -43,7 +56,6 @@ internal abstract class Creature(attack: Int, defense: Int, health: Int, damage:
     }
 
     internal fun checkHealth() : Int {
-        if (initialHealth < 0) health = 1
         return health
     }
 

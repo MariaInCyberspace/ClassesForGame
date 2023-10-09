@@ -7,7 +7,7 @@ internal class Player(attack: Int, defense: Int, health: Int, damage: IntRange)
     private var healCounter: Int = 0
     private val maxHealth = health
 
-    override var health: Int by Delegates.observable(health) {
+    override var health: Int by Delegates.observable(initialHealth) {
         _, _, value ->
             if ((value == 0 || value < 0) && isAlive) {
                 heal()

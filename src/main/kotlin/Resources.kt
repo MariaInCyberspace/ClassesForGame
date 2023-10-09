@@ -1,6 +1,7 @@
 object Resources {
 
     const val ATTACK_DEFENSE_EXCEPTION_MESSAGE = "not in range. Value will be reset"
+    const val HEALTH_VAL_EXCEPTION = "Health points value not in range. Will be reset"
     const val ATTACK_FAILED_MESSAGE = "\tAttack failed"
     const val CREATURE_DEAD = "This creature is dead. RIP"
     const val PLAYER_DEAD = "\tHealing limit exceeded. This player is dead. RIP"
