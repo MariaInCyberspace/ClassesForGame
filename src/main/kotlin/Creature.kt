@@ -10,8 +10,7 @@ internal abstract class Creature(attack: Int, defense: Int, health: Int, damage:
 
 
     protected open var health: Int by Delegates.observable(initialHealth) {
-            _, old, new ->
-
+            _, _, new ->
         if (new == 0 || new < 0) {
             isAlive = false
             info()
